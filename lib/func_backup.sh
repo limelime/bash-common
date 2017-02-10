@@ -3,7 +3,7 @@
 
 function func_backup()
 {
-  TARGET_DIR=$1
+  local TARGET_DIR=$1
   if [ ! -e "${TARGET_DIR}" ]; then
     echo "Error: ${TARGET_DIR}: no such file or directory. Aborted!"
     echo "  $0 FILE_OR_DIRECTORY"
@@ -12,10 +12,10 @@ function func_backup()
   TARGET_DIR=$(readlink -ev "${TARGET_DIR}")
   
   # Backup
-  DATE_STRING=$(date +"%Y-%m-%d.%0k.%M.%S")
-  INPUT_BASE_DIR="$(dirname "${TARGET_DIR}")"
-  INPUT="$(basename "${TARGET_DIR}")"
-  OUTPUT_ARCHIVE="${INPUT_BASE_DIR}/${INPUT}_${DATE_STRING}.tar.bz2"
+  local DATE_STRING=$(date +"%Y-%m-%d.%0k.%M.%S")
+  local INPUT_BASE_DIR="$(dirname "${TARGET_DIR}")"
+  local INPUT="$(basename "${TARGET_DIR}")"
+  local OUTPUT_ARCHIVE="${INPUT_BASE_DIR}/${INPUT}_${DATE_STRING}.tar.bz2"
   
   tar -jcf "${OUTPUT_ARCHIVE}" -C "${INPUT_BASE_DIR}" "${INPUT}"
   # List content: tar -tvf archive.tar.bz2
