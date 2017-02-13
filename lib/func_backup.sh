@@ -1,5 +1,5 @@
 # Description: Backup TARGET_DIR path
-#   -Depends on: XXXX
+#   -Depends on: func_id.sh
 
 function func_backup()
 {
@@ -12,7 +12,7 @@ function func_backup()
   TARGET_DIR=$(readlink -ev "${TARGET_DIR}")
   
   # Backup
-  local DATE_STRING=$(date +"%Y-%m-%d.%0k.%M.%S")
+  local DATE_STRING=$(func_id sec-medium)
   local INPUT_BASE_DIR="$(dirname "${TARGET_DIR}")"
   local INPUT="$(basename "${TARGET_DIR}")"
   local OUTPUT_ARCHIVE="${INPUT_BASE_DIR}/${INPUT}_${DATE_STRING}.tar.bz2"
