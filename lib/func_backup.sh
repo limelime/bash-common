@@ -20,6 +20,8 @@ function func_backup()
   tar -jcf "${OUTPUT_ARCHIVE}" -C "${INPUT_BASE_DIR}" "${INPUT}"
   # List content: tar -tvf archive.tar.bz2
   # Extract content: tar -xvjf archive.tar.bz2
+  
+  echo "Created: ${OUTPUT_ARCHIVE}"
 }  
 export -f func_backup
 
