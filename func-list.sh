@@ -15,3 +15,4 @@ source ${LIB_DIR}/func_bashrc_add.sh
 source ${LIB_DIR}/func_dir_get_executing_path.sh
 source ${LIB_DIR}/func_get_current_dir.sh
 source ${LIB_DIR}/func_link.sh
+source ${LIB_DIR}/func_id.sh
