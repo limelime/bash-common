@@ -26,6 +26,13 @@ function func_id()
       sec-long)
         ID=$(date +"%Y-%m-%d.%0k.%M.%S")
         ;;
+      sec-full)
+        ID=$(date +"%Y%m%d%0k%M%S")
+        ;;
+      *)
+        echo "Error: unknown ${TYPE} type. Aborted!"
+        echo " Run func_id_options for all available types."
+        return 1;
   esac
   
   echo "${ID}" 
@@ -35,8 +42,9 @@ export -f func_id
 
 function func_id_options()
 { 
-  local types=(sec-short sec-medium)
-  types+=(sec-long)
+  local types=(sec-short sec-medium sec-long)
+  types+=(sec-full)
+  
   printf "%-10s  %-6s %-25s\n" 'Type' 'Length' 'Output'
   echo "============================="
   for type in "${types[@]}"
