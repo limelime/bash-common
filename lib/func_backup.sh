@@ -21,7 +21,7 @@ function func_backup()
   # List content: tar -tvf archive.tar.bz2
   # Extract content: tar -xvjf archive.tar.bz2
   
-  echo "Created: ${OUTPUT_ARCHIVE}"
+  echo "Backup to: ${OUTPUT_ARCHIVE}"
 }  
 export -f func_backup
 
