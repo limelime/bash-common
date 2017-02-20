@@ -10,7 +10,8 @@ set -e
 # Test add path.
   PATH_UNIQ="${HOME}/78974651"
   mkdir -p "${PATH_UNIQ}"
-  assert "func_bashrc_add_path ${HOME}/78974651" '~/.bashrc: Added: PATH=$PATH:/root/78974651.'
+  EXPECTED_RESULT='~/.bashrc: Added: PATH=$PATH:'"${PATH_UNIQ}."
+  assert "func_bashrc_add_path ${HOME}/78974651" "${EXPECTED_RESULT}"
   sed -i 's/.*78974651.*//' ~/.bashrc
 
 # Test invalid path.
