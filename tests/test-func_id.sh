@@ -4,7 +4,8 @@ set -e
 
 . assert.sh
 
-assert_raises "func_id" 1
+# Test no parameter.
+  assert_raises "func_id" 1
 
 # Test all types.
   ID_TYPES=(sec-short sec-medium sec-long)
