@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-# Description:
+# Description: Test func_cmd_exists.
 
 . assert.sh
 
@@ -10,4 +10,4 @@ assert_raises "func_cmd_exists" 1
 assert_raises "func_cmd_exists invalidCommand" 1
 
 
-assert_end examples
+assert_end func_cmd_exists
