@@ -8,3 +8,7 @@
     cat lib/*.sh > /tmp/mmm.tmp
     scite /tmp/mmm.tmp
     # Goto line number. 
+    
+# Test
+    . func-list.sh
+    cd test/
