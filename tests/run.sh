@@ -13,3 +13,9 @@ source ../lib/func_link.sh
 
 source ../lib/func_dir_get_executing_path.sh
 ./test-func_dir_get_executing_path.sh
+
+source ../lib/func_bashrc_add.sh
+./test-func_bashrc_add.sh
+
+source ../lib/func_bashrc_add.sh
+./test-func_bashrc_add.sh
