@@ -1,9 +1,4 @@
 # http://stackoverflow.com/questions/20449707/using-travis-ci-for-testing-on-unix-shell-scripts
-matrix:
-  include:
-    - os: linux
-      dist: trusty
-      language: bash
-install:
+language: bash
 script:
   - tests/run.sh
