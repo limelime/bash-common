@@ -22,4 +22,7 @@ set -e
   FILE_A_PATH=$(echo "${BACKUP_RESULT}" | cut -d':' -f2 | xargs)
   rm -f "${FILE_A_PATH}"
 
+
+  rm -f "${FILE_A}"
+  rm -f "${FILE_B}" 
 assert_end func_backup
