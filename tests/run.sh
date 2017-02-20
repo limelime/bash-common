@@ -19,3 +19,6 @@ source ../lib/func_bashrc_add.sh
 
 source ../lib/func_bashrc_add_path.sh
 ./test-func_bashrc_add_path.sh
+
+source ../lib/func_backup.sh
+./test-func_backup.sh
