@@ -1,3 +1,5 @@
+https://travis-ci.org/limelime/bash-common-functions.svg?branch=master
+
 # Usage
     # Load all functions.
     . func-list.sh
