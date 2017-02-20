@@ -1,4 +1,4 @@
-# Copy from https://github.com/arfoll/unrarall/blob/master/.travis.yml
+# http://stackoverflow.com/questions/20449707/using-travis-ci-for-testing-on-unix-shell-scripts
 matrix:
   include:
     - os: linux
