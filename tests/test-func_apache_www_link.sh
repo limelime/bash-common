@@ -14,7 +14,10 @@ set -e
   TARGET_NAME=test-data/www/local_drupal
   mkdir -p ${TARGET_NAME}
   LINK_NAME=drupal986523
+  echo ${LINK_NAME} > ${TARGET_NAME}/${LINK_NAME}.txt
+  
   assert_raises "func_apache_www_link ${TARGET_NAME} ${LINK_NAME}"
+  assert "cat /var/www/html/${LINK_NAME}/${LINK_NAME}.txt" "${LINK_NAME}" # Check content from new symbolic link.
   rm -f /var/www/html/${LINK_NAME}
   
 assert_end func_apache_www_link
