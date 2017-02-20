@@ -6,11 +6,22 @@ set -e
 
 assert_raises "func_id" 1
 
-assert_raises "func_id sec-short"
-assert_raises "func_id sec-medium"
-assert_raises "func_id sec-long"
-assert_raises "func_id sec-full"
-
+# Test all types.
+  ID_TYPES=(sec-short sec-medium sec-long)
+  ID_TYPES+=(sec-full)
+  GREP_TYPES=('........\......')          # sec-short
+  GREP_TYPES+=('....-..-..\......')       # sec-medium
+  GREP_TYPES+=('....-..-..\...\...\...')  # sec-long
+  GREP_TYPES+=('..............')          # sec-full
+  idx=0
+  for type in "${ID_TYPES[@]}"
+  do
+    CMD_RESULTS=$(func_id ${type})
+    if ! echo "${CMD_RESULTS}" | grep -q "^${GREP_TYPES[${idx}]}$" ; then
+      assert "func_id ${type}" "${GREP_TYPES[${idx}]}" ""
+    fi
+    let idx=idx+1
+  done  
 
 
 assert_end func_id
