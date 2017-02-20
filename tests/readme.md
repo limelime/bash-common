@@ -1,4 +1,4 @@
-# Get unit test
+# Get latest unit test
     https://github.com/lehmannro/assert.sh
     
 # Example of how to run travis with Bash
