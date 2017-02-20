@@ -1,4 +1,5 @@
-https://travis-ci.org/limelime/bash-common-functions.svg?branch=master
+
+[![Build Status](https://travis-ci.org/limelime/bash-common-functions.svg?branch=master)](https://travis-ci.org/limelime/bash-common-functions.svg?branch=master)
 
 # Usage
     # Load all functions.
