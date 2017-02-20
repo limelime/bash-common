@@ -10,3 +10,6 @@ source ../lib/func_id.sh
 
 source ../lib/func_link.sh
 ./test-func_link.sh
+
+source ../lib/func_dir_get_executing_path.sh
+./test-func_dir_get_executing_path.sh
