@@ -2,6 +2,9 @@
 set -e
 # Description: Run all test scripts here.
 
+# Ensure scripts are executable. Git replace will remove executable attribute.
+chmod +x test-func_*.sh
+
 source ../lib/func_cmd_exists.sh
 ./test-func_cmd_exists.sh
 
