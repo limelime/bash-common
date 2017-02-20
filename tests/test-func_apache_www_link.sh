@@ -20,6 +20,6 @@ set -e
   assert "cat /var/www/html/${LINK_NAME}/${LINK_NAME}.txt" "${LINK_NAME}" # Check content from new symbolic link.
   
   rm -f /var/www/html/${LINK_NAME}
-  rm -f test-data/www/
+  rm -rf test-data/www/
   
 assert_end func_apache_www_link
