@@ -16,6 +16,7 @@ assert_raises "func_link" 1
   assert_raises "func_link ${TARGET_NAME} ${LINK_NAME}" 0
   assert "cat ${LINK_NAME}" "func_link" ""
 
-
+  rm -f "${TARGET_NAME}"
+  rm -f "${LINK_NAME}"
 
 assert_end func_link
