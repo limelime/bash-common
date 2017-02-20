@@ -1,4 +1,15 @@
-# http://stackoverflow.com/questions/20449707/using-travis-ci-for-testing-on-unix-shell-scripts
-language: bash
+# Copy from https://github.com/arfoll/unrarall/blob/master/.travis.yml
+matrix:
+  include:
+    - os: linux
+      dist: trusty
+      # TravisCI doesn't support testing bash versions so
+      # just pretend we are testing a python project
+      language: python
+      python: 3.5
+      sudo: required
+      language: generic
+      sudo: required
+install:
 script:
-  - tests/run.sh
+  - (cd tests && run.sh)
