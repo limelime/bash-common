@@ -18,14 +18,17 @@ function func_apache_www_link()
       echo "${FUNCNAME[0]}: Error: ${WEB_ROOT_DIR} is not a directory."
       return 1;
     fi
-  
     WEB_ROOT_DIR=$(readlink -ev "${WEB_ROOT_DIR}")
-  
+
+    if [[ ${APACHE_SYMBOLIC_NAME} == *"/"* ]]; then
+      echo "${FUNCNAME[0]}: Error: APACHE_SYMBOLIC_NAME: ${APACHE_SYMBOLIC_NAME} can't be a path."
+      return 1;
+    fi
+      
   # Link apache to folder
     APACHE_DIR=/var/www/html/${APACHE_SYMBOLIC_NAME}
     rm -f ${APACHE_DIR}
     ln -s ${WEB_ROOT_DIR} ${APACHE_DIR}
-    #chmod -R 777 ${WEB_ROOT_DIR}
     chown -R www-data:www-data ${WEB_ROOT_DIR}
     chmod -R 755 ${WEB_ROOT_DIR}
   
