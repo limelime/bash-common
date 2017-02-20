@@ -2,6 +2,6 @@
 set -e
 # Description: Run all test scripts here.
 
-source lib/func_cmd_exists.sh
+source ../lib/func_cmd_exists.sh
 
 ./test-func_cmd_exists.sh
