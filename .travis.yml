@@ -12,4 +12,4 @@ matrix:
       sudo: required
 install:
 script:
-  - (cd tests && run.sh)
+  - (cd tests && ./run.sh)
