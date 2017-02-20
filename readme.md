@@ -9,6 +9,11 @@
     scite /tmp/mmm.tmp
     # Goto line number. 
     
-# Test
-    . func-list.sh
-    cd test/
+# Create unit test
+    
+    # Create unit test
+    ./func-test-create.sh lib/func_id.sh
+    
+    # Run
+    cd tests/
+    ./run.sh
