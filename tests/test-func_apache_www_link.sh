@@ -13,6 +13,7 @@ set -e
 # Test link www
   TARGET_NAME=test-data/www/local_drupal
   mkdir -p ${TARGET_NAME}
+  mkdir -p /var/www/html
   LINK_NAME=drupal986523
   echo ${LINK_NAME} > ${TARGET_NAME}/${LINK_NAME}.txt
   
