@@ -20,3 +20,11 @@
     # Run
     cd tests/
     ./run.sh
+
+# Fork
+After cloning the repository, run the followings:
+
+    chmod +x *.sh
+    chmod +x lib/*.sh
+    chmod +x tests/*.sh
+    
