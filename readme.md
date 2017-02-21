@@ -27,4 +27,4 @@ After cloning the repository, run the followings:
     chmod +x *.sh
     chmod +x lib/*.sh
     chmod +x tests/*.sh
-    
+    (cd tests/ && ./run.sh)
