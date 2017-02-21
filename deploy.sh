@@ -8,10 +8,13 @@ SCRIPTS_DIR=${HOME}/bash-scripts
 mkdir -p "${SCRIPTS_DIR}"
 SCRIPTS_DIR=$(readlink -ev "${SCRIPTS_DIR}")
 
-yes | cp -a ${LIB_DIR}/* "${SCRIPTS_DIR}"
+# Copy to target destination directory.
+  yes | cp -a ${LIB_DIR}/* "${SCRIPTS_DIR}"
 
-while IFS='' read -r LINE || [[ -n "${LINE}" ]]; do
-  echo "source \"${LINE}\"" >> ${HOME}/.bashrc
-done < <( find "${SCRIPTS_DIR}" -type f -name '*.sh')
+# Add in .bashrc
+  while IFS='' read -r LINE || [[ -n "${LINE}" ]]; do
+    echo "source \"${LINE}\"" >> ${HOME}/.bashrc
+  done < <( find "${SCRIPTS_DIR}" -type f -name '*.sh')
 
+# Display what to do next.
 echo "Run: source ${HOME}/.bashrc"
