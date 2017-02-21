@@ -28,3 +28,6 @@ source ../lib/func_backup.sh
 
 source ../lib/func_apache_www_link.sh
 ./test-func_apache_www_link.sh
+
+source ../lib/func_sizeof_kb.sh
+./test-func_sizeof_kb.sh
