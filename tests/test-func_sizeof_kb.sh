@@ -12,7 +12,8 @@ set -e
 
 # Test with specific file size.
   FILE_1M=file_1mb.txt
-  dd if=/dev/null of=${FILE_1M} bs=1 count=0 seek="1M" 1> /dev/null 2>&1 
+  dd if=/dev/urandom of=${FILE_1M} bs=1M count=1 1> /dev/null 2>&1 
   assert "func_sizeof_kb ${FILE_1M}" "1024"
-
+  rm -f ${FILE_1M}
+  
 assert_end func_sizeof_kb
