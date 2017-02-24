@@ -28,3 +28,7 @@ After cloning the repository, run the followings:
     chmod +x lib/*.sh
     chmod +x tests/*.sh
     (cd tests/ && ./run.sh)
+    
+    
+# Coding style
+* https://google.github.io/styleguide/shell.xml    
