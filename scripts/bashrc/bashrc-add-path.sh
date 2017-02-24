@@ -10,14 +10,9 @@ set -e
     echo "Error: "${env_path}": no such directory. Aborted!"
     exit 1;
   fi    
-    env_path=$(readlink -ev "${env_path}")
-    env_path="PATH=\$PATH:${env_path}"
-  if
+  env_path=$(readlink -ev "${env_path}")
+  env_path="PATH=\$PATH:${env_path}"
+
 
 # Add environment path.
-  if hash bashrc-add 2>/dev/null; then
-    bashrc-add "${env_path}"
-  else
-    ./bashrc-add "${env_path}"
-  fi
-
+  bashrc-add "${env_path}"
