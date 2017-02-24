@@ -1,3 +1,3 @@
 # Structure
 
-* cld-tools: Tools needs in Cust-Live-Deb to remaster ISO.
+* cld-tools: Tools needs to build Cust-Live-Deb ISO.
