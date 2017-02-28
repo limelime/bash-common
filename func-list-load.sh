@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+#set -e # Don't enable this statement. Otherwise, command not found will close the terminal.
 # Description: Load all *.sh from source lib/
 
 LIB_DIR=$(readlink -ev ./lib)
