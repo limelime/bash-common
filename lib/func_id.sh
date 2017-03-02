@@ -12,8 +12,12 @@ function func_id()
   TYPE=$( echo "${TYPE}" | tr '[:upper:]' '[:lower:]' )
 
   local ID=""
+  local time_str=$(date '+%H:%M:%S')
+  local hours=$(echo $time_str | cut -d':' -f1 | sed 's/^0//')
+  local minutes=$(echo $time_str | cut -d':' -f2 | sed 's/^0//')
+  local seconds=$(echo $time_str | cut -d':' -f3 | sed 's/^0//')
   local SECONDS_SINCE_MIDNIGHT=""
-  SECONDS_SINCE_MIDNIGHT=$(($(date '+(%H*60+%M)*60+%S')))
+  SECONDS_SINCE_MIDNIGHT=$(( ($hours*60 + $minutes)*60 + $seconds ))
   SECONDS_SINCE_MIDNIGHT=$(printf "%05d" ${SECONDS_SINCE_MIDNIGHT})  
     
   case "${TYPE}" in
