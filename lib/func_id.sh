@@ -4,10 +4,6 @@
 function func_id()
 { 
 
-#date +"O:%Y%m%d%0k%M%S"
-
-#echo $(($(date '+(%H*60+%M)*60+%S')))
-  
   local TYPE=$1
   TYPE=$( echo "${TYPE}" | tr '[:upper:]' '[:lower:]' )
 
