@@ -4,38 +4,38 @@
 function func_id()
 { 
 
-  local TYPE=$1
-  TYPE=$( echo "${TYPE}" | tr '[:upper:]' '[:lower:]' )
+  local type=$1
+  type=$( echo "${type}" | tr '[:upper:]' '[:lower:]' )
 
-  local ID=""
+  local id=""
   local time_str=$(date '+%H:%M:%S')
   local hours=$(echo $time_str | cut -d':' -f1 | sed 's/^0//')
   local minutes=$(echo $time_str | cut -d':' -f2 | sed 's/^0//')
   local seconds=$(echo $time_str | cut -d':' -f3 | sed 's/^0//')
-  local SECONDS_SINCE_MIDNIGHT=""
-  SECONDS_SINCE_MIDNIGHT=$(( ($hours*60 + $minutes)*60 + $seconds ))
-  SECONDS_SINCE_MIDNIGHT=$(printf "%05d" ${SECONDS_SINCE_MIDNIGHT})  
+  local seconds_since_midnight=""
+  seconds_since_midnight=$(( ($hours*60 + $minutes)*60 + $seconds ))
+  seconds_since_midnight=$(printf "%05d" ${seconds_since_midnight})  
     
-  case "${TYPE}" in
+  case "${type}" in
       sec-short)
-        ID=$(date +"%Y%m%d.")${SECONDS_SINCE_MIDNIGHT}
+        id=$(date +"%Y%m%d.")${seconds_since_midnight}
         ;;
       sec-medium)
-        ID=$(date +"%Y-%m-%d.")${SECONDS_SINCE_MIDNIGHT}
+        id=$(date +"%Y-%m-%d.")${seconds_since_midnight}
         ;;
       sec-long)
-        ID=$(date +"%Y-%m-%d.%0k.%M.%S")
+        id=$(date +"%Y-%m-%d.%0k.%M.%S")
         ;;
       sec-full)
-        ID=$(date +"%Y%m%d%0k%M%S")
+        id=$(date +"%Y%m%d%0k%M%S")
         ;;
       *)
-        echo "Error: unknown ${TYPE} type. Aborted!"
+        echo "Error: unknown ${type} type. Aborted!"
         echo " Run func_id_options for all available types."
         return 1;
   esac
   
-  echo "${ID}" 
+  echo "${id}" 
 }  
 export -f func_id
 
@@ -49,8 +49,8 @@ function func_id_options()
   echo "============================="
   for type in "${types[@]}"
   do
-    ID_RESULT=$( func_id "${type}")
-    printf "%-10s  %-6s %-25s\n" "${type}" "${#ID_RESULT}" "${ID_RESULT}" 
+    id_result=$( func_id "${type}")
+    printf "%-10s  %-6s %-25s\n" "${type}" "${#id_result}" "${id_result}" 
   done  
 }  
 export -f func_id_options
