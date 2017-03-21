@@ -25,4 +25,3 @@ function func_backup()
 }  
 export -f func_backup
 
-# Test: XXXX
