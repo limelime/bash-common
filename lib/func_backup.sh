@@ -25,3 +25,29 @@ function func_backup()
 }  
 export -f func_backup
 
+
+function func_backup_del_old()
+{
+  local archive_prefix=$1
+  
+  local archive_list=$(ls -1 ${archive_prefix}*????-??-??.?????.tar.bz2 | sort -r)
+  archive_list=$(echo "${archive_list}" | tail -n +2 ) # Remove first line
+  archive_list=$(echo "${archive_list}" | head -n -1 ) # Remove last line
+
+  #echo "${archive_list}"
+  
+  local counter=0
+  local del_after_days=7
+  while [ $counter -lt ${del_after_days} ]; do
+    local day_exclude=$(date --date="-${counter} days" +%Y-%m-%d)
+    archive_list=$(echo "${archive_list}" | grep -vF "${day_exclude}" )
+    counter=$[$counter+1]
+  done  
+  
+  if [ -z "${archive_list}" ]; then
+    echo "Nothing to delete!"
+  else
+    echo "${archive_list}" | xargs rm -f
+  fi
+}  
+export -f func_backup_del_old
