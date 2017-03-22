@@ -29,6 +29,11 @@ export -f func_backup
 function func_backup_del_old()
 {
   local archive_prefix=$1
+  if [ -z "${archive_prefix}" ]; then 
+    echo "Error: ${archive_prefix}: Archive prefix can't be empty. Aborted!"
+    echo "  ${FUNCNAME[0]} archive_"
+    return 1;
+  fi    
   
   local archive_list=$(ls -1 ${archive_prefix}*????-??-??.?????.tar.bz2 | sort -r)
   archive_list=$(echo "${archive_list}" | tail -n +2 ) # Remove first line
