@@ -9,8 +9,8 @@ set -e
 # Test empty parameter.
   assert_raises "func_backup_del_old" 1
 
-# Test multiple archive prefixes.
-  assert_raises "func_backup_del_old file name with space" 1
+# Test file name with spaces.
+  assert_raises "func_backup_del_old file name with spaces" 1
     
 # Test delete old backup files.
   # Create test data
