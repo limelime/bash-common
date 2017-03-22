@@ -33,18 +33,18 @@ function func_backup_del_old()
 
   if [ "$#" -ne 2 ]; then
     echo "Error: Only 2 arguments are allowed. Currently, there are $#($@).Aborted!"
-    echo "  ${FUNCNAME[0]} archive_ age"
+    echo "  ${FUNCNAME[0]} archive_ days"
     return 1;
   fi    
   if [ -z "${archive_prefix}" ]; then 
     echo "Error: ${archive_prefix}: Archive prefix can't be empty. Aborted!"
-    echo "  ${FUNCNAME[0]} archive_ age"
+    echo "  ${FUNCNAME[0]} archive_ days"
     return 1;
   fi
   is_number_regex='^[0-9]+$'
   if ! [[ "${del_after_days}" =~ ${is_number_regex} ]] ; then
     echo "Error: ${del_after_days} is not a number. Aborted!" >&2
-    echo "  ${FUNCNAME[0]} archive_ age"
+    echo "  ${FUNCNAME[0]} archive_ days"
     return 1;
   fi  
   
