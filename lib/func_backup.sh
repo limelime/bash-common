@@ -33,11 +33,20 @@ function func_backup_del_old()
     echo "Error: ${archive_prefix}: Archive prefix can't be empty. Aborted!"
     echo "  ${FUNCNAME[0]} archive_"
     return 1;
+  fi
+  if [ "$#" -ne 1 ]; then
+    echo "Error: ${archive_prefix}: Only 1 archive prefix is allowed. Aborted!"
+    echo "  ${FUNCNAME[0]} archive_"
+    return 1;
   fi    
   
-  local archive_list=$(ls -1 ${archive_prefix}*????-??-??.?????.tar.bz2 | sort -r)
+  local archive_list=$(ls -1 "${archive_prefix}"*????-??-??.*.tar.bz2 | sort -r)
+  if [ -z "${archive_list}" ]; then echo "Nothing to delete!001"; return 0; fi
+
   archive_list=$(echo "${archive_list}" | tail -n +2 ) # Remove first line
   archive_list=$(echo "${archive_list}" | head -n -1 ) # Remove last line
+
+  if [ -z "${archive_list}" ]; then echo "Nothing to delete!002"; return 0; fi
 
   #echo "${archive_list}"
   
@@ -52,7 +61,9 @@ function func_backup_del_old()
   if [ -z "${archive_list}" ]; then
     echo "Nothing to delete!"
   else
-    echo "${archive_list}" | xargs rm -f
+    echo "Deleting: "
+    echo "${archive_list}" | sed 's/^/  /'
+    echo "${archive_list}"| tr \\n \\0 | xargs -0 -n1 rm -f
   fi
 }  
 export -f func_backup_del_old
