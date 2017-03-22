@@ -35,7 +35,7 @@ function func_backup_del_old()
     return 1;
   fi
   if [ "$#" -ne 1 ]; then
-    echo "Error: ${archive_prefix}: Only 1 archive prefix is allowed. Aborted!"
+    echo "Error: Only 1 archive prefix is allowed. Currently, there are $#($@).Aborted!"
     echo "  ${FUNCNAME[0]} archive_"
     return 1;
   fi    
