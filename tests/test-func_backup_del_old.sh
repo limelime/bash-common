@@ -25,7 +25,7 @@ set -e
   touch "${archive_prefix}_$(date --date="-31 days" +%Y-%m-%d).keep.oldest.tar.bz2"
 
   # Test delete old backups.
-  assert_raises "func_backup_del_old \"${archive_prefix}\"" 0
+  assert_raises "func_backup_del_old \"${archive_prefix}\" 7" 0
   # Check expected results.
   results=$(find "${backup_test_data_dir}" -name '*.tar.bz2' | grep -F '.keep.' | wc -l)
   if [ "${results}" -ne 3 ]; then
