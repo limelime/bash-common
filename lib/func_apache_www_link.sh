@@ -1,5 +1,5 @@
 # Description: XXXX
-#  Note: Ensure that parent path of $web_root_dir are executable by Apache.
+#  Note: Ensure that parent path of $web_root_dir are executable by Apache. http://stackoverflow.com/a/7381474
 #       e.g.: chmod o+x /root /root/site /root/site/about
 #   -Depends on: XXXX
 
