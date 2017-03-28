@@ -36,5 +36,5 @@ set -e
   fi
   
   
-  rm -rf 
+ 
 assert_end func_backup_del_old
