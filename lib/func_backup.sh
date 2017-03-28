@@ -72,6 +72,6 @@ function func_backup_del_old()
     echo "${archive_list}" | sed 's/^/  /'
     echo "${archive_list}"| tr \\n \\0 | xargs -0 -n1 rm -f
   fi
-  return 0;
+
 }  
 export -f func_backup_del_old
