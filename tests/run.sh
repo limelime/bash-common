@@ -32,3 +32,6 @@ source ../lib/func_apache_www_link.sh
 
 source ../lib/func_sizeof_kb.sh
 ./test-func_sizeof_kb.sh
+
+source ../lib/func_file_zero.sh
+./test-func_file_zero.sh
