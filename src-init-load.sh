@@ -15,3 +15,4 @@ source lib/func_dir_get_executing_path.sh
 source lib/func_id.sh
 source lib/func_link.sh
 source lib/func_sizeof_kb.sh
+source lib/func_file_zero.sh
