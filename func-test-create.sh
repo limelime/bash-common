@@ -6,7 +6,7 @@ FUNCTION_FILE=$1
 
 # Error handling
   if [ ! -f "${FUNCTION_FILE}" ]; then
-    echo "Error: ${FUNCTION_FILE}: no such file. Aborted!"
+    echo "Error: Script not found: ${FUNCTION_FILE}: no such file. Aborted!"
     exit 1;
   fi
   FUNCTION_FILE=$(readlink -ev "${FUNCTION_FILE}")
