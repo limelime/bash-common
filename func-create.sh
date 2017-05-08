@@ -11,7 +11,7 @@ FUNCTION_NAME=$1
   fi
 
 # Create function file.
-  LIB_DIR=$(readlink -ev ./lib)
+  LIB_DIR='lib'
   FUNCTION_NAME="func_${FUNCTION_NAME}"
   FUNCTION_PATH="${LIB_DIR}/${FUNCTION_NAME}.sh"
   if [ ! -f "${FUNCTION_PATH}" ]; then
