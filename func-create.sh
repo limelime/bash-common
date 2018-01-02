@@ -6,7 +6,7 @@ FUNCTION_NAME=$1
 
 # Error handling
   if [ -z "${FUNCTION_NAME}" ]; then
-    echo "Error: FUNCTION_NAME can't be empty. Aborted!"
+    echo "Error: Input FUNCTION_NAME, without prefix 'func_'. Currently it is empty. Aborted!"
     exit 1;
   fi
 
