@@ -16,3 +16,5 @@ source lib/func_id.sh
 source lib/func_link.sh
 source lib/func_sizeof_kb.sh
 source lib/func_file_zero.sh
+source lib/func_func_crontab.sh
+source lib/func_crontab.sh
