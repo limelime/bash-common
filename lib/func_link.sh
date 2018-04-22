@@ -10,6 +10,13 @@ function func_link()
     echo "  ${FUNCNAME[0]} /backup/data/google-chrome  /root/.config/google-chrome"
     return 1;
   fi
+
+  # Copy original link_name if target name doesn't exist
+  if [ ! -e "${TARGET_NAME}" ]; then
+    if [ -e "${LINK_NAME}" ]; then
+      cp -av "${LINK_NAME}" "${TARGET_NAME}"
+    fi
+  fi
   
   # Link
   TARGET_NAME=$(readlink -ev "${TARGET_NAME}") &&  rm -rf "${LINK_NAME}"
